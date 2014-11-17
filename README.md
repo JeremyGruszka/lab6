@@ -11,7 +11,7 @@ lab6
 
 
 
-MOTOR CONTROL SUGGESTIONS:
+#####MOTOR CONTROL SUGGESTIONS:
  
 There are many ways to control your robot motors using the resources on the MSP430. I'm leaving this purposesly open-ended to see the creative approaches you come up with. Here are a few ideas to get your started:
 
@@ -30,7 +30,7 @@ There are many ways to control your robot motors using the resources on the MSP4
 
 
 
-MOTOR DRIVER CHIP:
+#####MOTOR DRIVER CHIP:
  
 The robot motors require ~12V and a high amount of current b both of which would immediately burn out your microcontroller if it were directly connected to the motors. The motor driver chip (SN754410) takes a 5V input and produces a ~12V output. Each chip has up to four channels of 5V inputs (1A, 2A, 3A, and 4A) and four corresponding 12V outputs (1Y, 2Y, 3Y, and 4Y).
  
@@ -42,7 +42,7 @@ You can test your 12V PWM motor driver chip output by connecting it to the oscil
 
 
 
-MOTOR STALL CURRENT:
+#####MOTOR STALL CURRENT:
  
 To ensure you never exceed 1A drawn from your motor driver chip, you have to determine the worst-case current draw from your motors. This is called the motor stall current and usually occurs when your robot is pushing against an object it can't move (i.e. a wall) or switching directions quickly.
  
@@ -52,7 +52,7 @@ On my robot, the stall current does not go below one amp until my motor is being
 
 
 
-DECOUPLING CAPACITORS:
+#####DECOUPLING CAPACITORS:
  
 The robot motors have the potential to create voltage fluctuations due to sudden spikes in current draw. They can also induce noise on the 5V line. This can cause your microcontroller to reset. To mitigate these fluctuations and noise, you'll need to use some capacitors:
 
@@ -69,7 +69,7 @@ The robot motors have the potential to create voltage fluctuations due to sudden
 
 
 
-HOW TO DRIVE YOUR MOTORS:
+#####HOW TO DRIVE YOUR MOTORS:
 
 •You never want to send voltage to both motor terminals simultaneously. This will create a short in your motor driver chip and cause it to burn out.
  
@@ -78,7 +78,7 @@ HOW TO DRIVE YOUR MOTORS:
 
 
 
-BREAKING PARTS:
+#####BREAKING PARTS:
  
 You'll probably break parts on this lab - you'll know by the burning smell!
  
