@@ -88,7 +88,7 @@ To test whether a fuse is burned, use the ohmmeter - a working fuse should have 
 
 
 
-#####Schematic
+#####SCHEMATIC:
 
 ![alt text](https://raw.githubusercontent.com/JeremyGruszka/lab6/master/schematic.jpg "Schematic")
 
