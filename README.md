@@ -98,12 +98,12 @@ To test whether a fuse is burned, use the ohmmeter - a working fuse should have 
 
 As far as code goes, I will make 6 methods:
 
-moveForward()
-moveBackward()
-smallLeftTurn()
-bigLeftTurn()
-smallRightTurn()
-bigRightTurn()
+moveForward() 
+moveBackward() 
+smallLeftTurn() 
+bigLeftTurn() 
+smallRightTurn() 
+bigRightTurn() 
 
 For required functionality, I will simply create a main method in my program and run each of these methods in order.  I will leave some time between functions so that there are not large current spikes in the robot.  I will create the moveForward() method by moving both motors forward, and the moveBackward() method by moving both motors backwards.  I will create the two left turn methods by moving the right motor forward and the left motor backward, and the two right turn methods by moving the left motor forward and the right motor backward.  To decide how much the robot will turn, I will simply experiment with my code and decide on a turn that I like for my method.  After the 6 methods are run through, the program will end.
 
