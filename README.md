@@ -108,3 +108,5 @@ bigRightTurn(),
 For required functionality, I will simply create a main method in my program and run each of these methods in order.  I will leave some time between functions so that there are not large current spikes in the robot.  I will create the moveForward() method by moving both motors forward, and the moveBackward() method by moving both motors backwards.  I will create the two left turn methods by moving the right motor forward and the left motor backward, and the two right turn methods by moving the left motor forward and the right motor backward.  To decide how much the robot will turn, I will simply experiment with my code and decide on a turn that I like for my method.  After the 6 methods are run through, the program will end.
 
 ##Lab 6 Work
+
+Required functionality was moving the robot forward, backward, a small turn of less than 45 degrees to both the left and right, and a large turn of greater than 45 degrees to both the left and right.
