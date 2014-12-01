@@ -115,7 +115,7 @@ I demonstrated my required functionality to Dr. Coulston on 24NOV14 during class
 
 The first thing I had to do in the lab was wire the robot.  I used green wires for the left motor, yellow wires for the right motor, red wires for power, and black wires for ground.  Wiring was not very hard and was done pretty quickly.  Here is a picture my robot and its wiring from a top view:
 
-![alt text](https://raw.githubusercontent.com/JeremyGruszka/lab6/master/schematic.jpg "Schematic")
+![alt text](https://raw.githubusercontent.com/JeremyGruszka/lab6/master/robot.jpg "Robot")
 
 The next thing I had to do in the lab was write the code.  Here is the code I used to initialize the robot in main:
 
@@ -178,3 +178,23 @@ The first time I tried moving the robot forward, I made it turn in a circle beca
 To move the robot the other ways, I merely had to manipulate the ways in which the wheels moved.  For backwards, I had both wheels move in the opposite directions.  For left turns, I had the right wheel forward and the left wheel go backwards.  For right turns, I had the right wheel go backwards and the left wheel go forwards.
 
 Here is the method I made to pause the robot in between movements:
+
+```
+void pause(void)
+{
+   //disable both motors
+   P2OUT &= ~BIT0;
+   P2OUT &= ~BIT5;
+   int i,k;
+   for(i = 0; i < 9000; i++)
+   {
+      for(k = 0; k < 100; k++);
+   }
+}
+```
+
+This was probably the most frustrating part of the lab for me.  I sat for hours trying to figure out how to get the wheels to stop and I couldn't do it.  I then realized I was writing P2DIR instead of P2OUT.  Classic Jeremy, giving myself hours of work for 1 messed up word.  To get the time I wanted pauses to be, I simply did trial and error until I liked what I got.  I used this method for the length of time the robot was moving in the other methods as well.
+
+Conclusion:  I got required functionality working but did not have time to get A functionality working.  I had fun wiring the robot up, I guess that means I have officially obtained nerd status.
+
+Documentation: None
