@@ -195,6 +195,6 @@ void pause(void)
 
 This was probably the most frustrating part of the lab for me.  I sat for hours trying to figure out how to get the wheels to stop and I couldn't do it.  I then realized I was writing P2DIR instead of P2OUT.  Classic Jeremy, giving myself hours of work for 1 messed up word.  To get the time I wanted pauses to be, I simply did trial and error until I liked what I got.  I used this method for the length of time the robot was moving in the other methods as well.
 
-Conclusion:  I got required functionality working but did not have time to get A functionality working.  I had fun wiring the robot up, I guess that means I have officially obtained nerd status.
+Conclusion:  I got required functionality working but did not have time to get A functionality working.  I showed my required functionality to Dr. Coulston in class on lesson 35.  I had fun wiring the robot up, I guess that means I have officially obtained nerd status.
 
 Documentation: None
