@@ -108,3 +108,73 @@ bigRightTurn(),
 For required functionality, I will simply create a main method in my program and run each of these methods in order.  I will leave some time between functions so that there are not large current spikes in the robot.  I will create the moveForward() method by moving both motors forward, and the moveBackward() method by moving both motors backwards.  I will create the two left turn methods by moving the right motor forward and the left motor backward, and the two right turn methods by moving the left motor forward and the right motor backward.  To decide how much the robot will turn, I will simply experiment with my code and decide on a turn that I like for my method.  After the 6 methods are run through, the program will end.
 
 ##Lab 6 Work
+
+Required functionality was moving the robot forward, backward, a small turn of less than 45 degrees to both the left and right, and a large turn of greater than 45 degrees to both the left and right.
+
+I demonstrated my required functionality to Dr. Coulston on 24NOV14 during class.
+
+The first thing I had to do in the lab was wire the robot.  I used green wires for the left motor, yellow wires for the right motor, red wires for power, and black wires for ground.  Wiring was not very hard and was done pretty quickly.  Here is a picture my robot and its wiring from a top view:
+
+![alt text](https://raw.githubusercontent.com/JeremyGruszka/lab6/master/schematic.jpg "Schematic")
+
+The next thing I had to do in the lab was write the code.  Here is the code I used to initialize the robot in main:
+
+```
+WDTCTL = WDTPW|WDTHOLD; // stop the watchdog timer
+
+P1DIR &= ~BIT3;
+P1REN |= BIT3;
+
+//directional control
+P2DIR |= BIT1; // P2.1 is left directional control
+P2DIR |= BIT3; //P2.3 is right directional control
+
+//left motor
+P2DIR |= BIT2; // P2.2 is associated with TA1CCR1
+P2SEL |= BIT2; // P2.2 is associated with TA1CCTL1
+P2DIR |= BIT0; //enables left motor
+P2OUT &= ~BIT0; //disables left motor
+
+//right motor
+P2DIR |= BIT4; // P2.4 is associated with TA1CCR2
+P2SEL |= BIT4; // P2.4 is associated with TA1CCTL2
+P2DIR |= BIT5; //enables right motor
+P2OUT &= ~BIT5; //disables right motor
+
+TA1CTL = ID_3 | TASSEL_2 | MC_1; // Use 1:8 presclar off MCLK
+TA1CCR0 = 0x0100; // set signal period
+
+TA1CCR1 = 0x0020;
+TA1CCR2 = 0x0020;
+```
+
+For the most part I used the code provided by Dr. Coulston's website for this part of the lab.  I think the only thing I added was the left and right motor enablers.  This part of the code makes sure that all the pins are going to the right places and sets up the robot for use.
+
+Here is the code I made to make the robot go forward:
+
+```
+void moveForward(void)
+{
+   //left motor
+   P2OUT |= BIT0; //enable left motor
+   P2OUT |= BIT1; //move left wheel forward
+   TA1CCTL1 = OUTMOD_7;
+
+   //right motor
+   P2OUT |= BIT5; //enable right motor
+   P2OUT &= ~BIT3; //move right wheel forward
+   TA1CCTL2 = OUTMOD_3;
+
+   int i,k;
+   for(i = 0; i < 20000; i++)
+   {
+      for(k = 0; k < 10; k++);
+   }
+}
+```
+
+The first time I tried moving the robot forward, I made it turn in a circle because I didn't realize the motors were facing in different directions.  After realizing this, I had the motors go in different directions to make the robot go in a straight line.
+
+To move the robot the other ways, I merely had to manipulate the ways in which the wheels moved.  For backwards, I had both wheels move in the opposite directions.  For left turns, I had the right wheel forward and the left wheel go backwards.  For right turns, I had the right wheel go backwards and the left wheel go forwards.
+
+Here is the method I made to pause the robot in between movements:
